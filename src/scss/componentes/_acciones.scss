@@ -1,0 +1,33 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+.acciones {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  @include m.tablet {
+    display: flex;
+    justify-content: space-between;
+  }
+  a {
+    color: black;
+    display: block;
+    margin-bottom: calc(v.$separacion/2);
+    span {
+      font-weight: bold;
+    }
+  }
+}
+
+.separacion3{
+  margin-top: 29rem;
+}
+.separacion1{
+  margin-top: 20rem;
+}
+.separacion2{
+  margin-top: 1.5rem;
+}
+
+.juntar{
+  padding-left: 5rem;
+  padding-right: 5rem;
+}

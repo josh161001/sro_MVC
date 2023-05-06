@@ -1,0 +1,16 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.formulario {
+  width: 100%;
+}
+
+input {
+
+  &:disabled{
+
+    background-color: lighten( v.$naranja, 25%);
+    color: white;
+    cursor: not-allowed;
+  }
+}

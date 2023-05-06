@@ -1,0 +1,22 @@
+{
+    "name": "estre/sro_mvc",
+    "description": "Proyecto de Jorge Martinez y José pantoja",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\": "./",
+            "Controllers\\": "./controllers",
+            "Model\\": "./models",
+            "Classes\\": "./classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jorge Martinez",
+            "email": "estrella161610@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    }
+}

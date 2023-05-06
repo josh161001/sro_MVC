@@ -1,0 +1,84 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.perfil-datos {
+  text-align: center;
+  padding-top: 1.5rem;
+  padding-bottom: 5rem;
+  h1 {
+    font-size: 3.5rem;
+  }
+  p {
+    font-size: 2rem;
+    font-weight: 400;
+  }
+}
+nav {
+  position: fixed;
+  top: 0;
+  bottom: 100%;
+  height: 100%;
+  left: 0;
+  background-color: v.$naranja;
+  overflow: hidden;
+  width: 35rem;
+  transition: width 0.2s linear;
+  box-shadow: 0 2rem 3.5rem rgba(0, 0, 0, 0.25);
+  .boton {
+    color: black;
+    text-transform: uppercase;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 6rem;
+  }
+}
+// estilo del boton div
+.perfil-input {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+  cursor: pointer;
+}
+/* ESTILO DEL INPUT*/
+.perfil-input input[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+// boton
+.perfil-ib {
+  margin: 5px;
+  background-color: white;
+  color: black;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgb(255, 255, 255);
+  transition: all 0.3s ease 0s;
+  width: 100%;
+  padding: 10px;
+}
+.fi {
+  position: relative;
+  width: 7rem;
+  height: 5rem;
+  font-size: 3rem;
+  right: 2rem;
+  text-align: center;
+}
+.salir {
+  top: 0.3rem;
+}
+.col-2 {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.colmn2 {
+  padding: 2.5rem;
+}

@@ -1,0 +1,27 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.paginacion{
+    display: flex;
+    justify-content: space-between;
+}
+
+.seccion{
+    display: none;
+
+ }
+ .seccion-normal{
+    padding: 5rem;
+    padding-top: 6rem;
+ }
+
+ .mostrar{
+    display: flex;
+    flex-direction: column
+ }
+ .ocultar{
+   visibility: hidden;
+ }
+.center{
+    padding-left: 25rem;
+}

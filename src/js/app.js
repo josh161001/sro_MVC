@@ -25,6 +25,7 @@ function iniciar() {
   // funcion para el backend
   consultarAPI(); //consulta los datos en el php
 
+  idCliente();
   nombreCliente(); //agrega el nombre al objeto
   seleccionarFecha(); //agrega la fecha al objeto
   seleccionarHora(); //agrega la hora al objeto
@@ -163,7 +164,10 @@ function seleccionarServicio(servicio) {
     divServicio.classList.add("seleccionado");
   }
 }
-
+function idCliente() {
+  const id = document.querySelector("#id").value;
+  reservacion.id = id;
+}
 function nombreCliente() {
   const nombre = document.querySelector("#nombre").value;
   reservacion.nombre = nombre;

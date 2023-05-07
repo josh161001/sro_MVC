@@ -55,6 +55,7 @@
     <div class="campo center">
     <input  type="time" id ="hora" >
     </div>
+    <input type="hidden" value="" id="id">
 </form>
 </div>
 <div id="paso-3" class="seccion contenido-cuenta">

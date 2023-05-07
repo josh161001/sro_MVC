@@ -3,6 +3,7 @@ let primeroPaso = 1;
 let ultimoPaso = 3;
 
 const reservacion = {
+  id: "",
   nombre: "",
   fecha: "",
   hora: "",
@@ -280,10 +281,10 @@ function mostrarCuentaFinal() {
   const fechaFormatter = fechaUTC.toLocaleDateString("es-MX", opciones);
 
   const fechaCliente = document.createElement("P");
-  fechaCliente.innerHTML = `<span>fecha: </span>${fechaFormatter}`;
+  fechaCliente.innerHTML = `<span>Fecha de reservacion: </span>${fechaFormatter}`;
 
   const horaCliente = document.createElement("P");
-  horaCliente.innerHTML = `<span>hora: </span>${hora} Horas`;
+  horaCliente.innerHTML = `<span>Hora de reservacion: </span>${hora} horas`;
   // BOTON PARA ENVIAR LOS DATOS AL BACKEND
   const botonReservar = document.createElement("BUTTON");
   botonReservar.classList.add("boton");
@@ -297,8 +298,28 @@ function mostrarCuentaFinal() {
   cuenta.appendChild(botonReservar);
 }
 
-function reservarReservacion() {
-  console.log("reservar");
+async function reservarReservacion() {
+  const { nombre, fecha, hora, servicios } = reservacion;
+
+  const idServicios = servicios.map((servicio) => servicio.id);
+
+  const datos = new FormData();
+  datos.append("nombre", nombre);
+  datos.append("fecha", fecha);
+  datos.append("hora", hora);
+  datos.append("servicios", idServicios);
+
+  // pedir peticion a la api
+  const url = "http://localhost:3000/api/reservaciones";
+
+  const respuesta = await fetch(url, {
+    method: "POST",
+    body: datos,
+  });
+
+  const resultado = await respuesta.json();
+
+  console.log(resultado);
 }
 function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
   // ya no se genera alerta

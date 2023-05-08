@@ -26,7 +26,7 @@ class APIController {
       // almacena servicios
       foreach($idServicios as $idServicio) {
         $args = [
-            'citaId' => $id,
+            'reservacionId' => $id,
             'servicioId' => $idServicio
         ];
         $reservacionServicios =  new ReservacionServicios($args);

@@ -81,9 +81,9 @@ class LoginController {
 
                     $email->enviarCodigo();
 
+
                     // alerta de exito
                     Usuario::setAlerta('exito', 'Se envio el codigo correctamente');
-                    header('Location: /olvide?msg=ok');
 
 
               }else{

@@ -5,6 +5,7 @@ require_once __DIR__ . '/../includes/app.php';
 use Controllers\LoginController;
 use Controllers\ReservaController;
 use Controllers\APIController;
+use Controllers\AdminController;
 
 use MVC\Router;
 
@@ -33,6 +34,8 @@ $router->get('/mensaje', [LoginController::class, 'mensaje']);
 
 //area de reservacion
 $router->get('/reservacion', [ReservaController::class, 'index']);
+$router->get('/admin', [AdminController::class, 'index']);
+
 
 //API  de reservacion
 $router-> get('/api/servicios', [APIController::class, 'index']);

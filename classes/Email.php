@@ -266,6 +266,8 @@ class Email {
           //enviar el email
   
           $mail->send();
+          header('Location: /olvide?msg=ok');
+
 
         }
 }

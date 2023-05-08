@@ -3,6 +3,7 @@ namespace Controllers;
 
 use Model\Servicio;
 use Model\Reservacion;
+use Model\ReservacionServicios;
 
 class APIController {
 
@@ -13,10 +14,29 @@ class APIController {
 
     }
     public static function guardar() {
-
+      // almacena la cita
       $reservacion = new Reservacion($_POST);
       $resultado = $reservacion-> guardar();
-      echo json_encode($resultado);
+
+      $id = $resultado['id'];
+
+      // almacena la cita y servicio
+      $idServicios = explode(",", $_POST['servicios']);
+
+      // almacena servicios
+      foreach($idServicios as $idServicio) {
+        $args = [
+            'citaId' => $id,
+            'servicioId' => $idServicio
+        ];
+        $reservacionServicios =  new ReservacionServicios($args);
+        $reservacionServicios->guardar();
+      }
+      $respuesta = [
+        'resultado' => $resultado
+      ];
+
+      echo json_encode($respuesta);
     }
 
 }

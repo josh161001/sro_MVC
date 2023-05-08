@@ -53,7 +53,9 @@ class LoginController {
 
     }
     public static function exit() {
-        echo 'Desde exit';
+        session_start();
+        $_SESSION = [];
+        header('Location: /');
     }
     public static function olvide(Router $router) {
 
@@ -81,6 +83,8 @@ class LoginController {
 
                     // alerta de exito
                     Usuario::setAlerta('exito', 'Se envio el codigo correctamente');
+                    header('Location: /olvide?msg=ok');
+
 
               }else{
                 Usuario::setAlerta('error', 'El email no existe');

@@ -229,6 +229,7 @@ function mostrarCuentaFinal() {
   }
 
   const { nombre, fecha, hora, servicios } = reservacion;
+  let precioTotal = 0;
 
   // heading
   const headingServicios = document.createElement("H3");
@@ -237,6 +238,7 @@ function mostrarCuentaFinal() {
 
   servicios.forEach((servicio) => {
     const { nombre, precio, img } = servicio;
+
     const serviciosCliente = document.createElement("DIV");
     serviciosCliente.classList.add("contenedor-servicio");
 
@@ -255,6 +257,7 @@ function mostrarCuentaFinal() {
     serviciosCliente.appendChild(textoServicio);
     serviciosCliente.appendChild(preciosServicio);
     cuenta.appendChild(serviciosCliente);
+    precioTotal += parseFloat(precio);
   });
 
   const headingReservacion = document.createElement("H3");
@@ -289,8 +292,13 @@ function mostrarCuentaFinal() {
 
   const horaCliente = document.createElement("P");
   horaCliente.innerHTML = `<span>Hora de reservacion: </span>${hora} horas`;
+
+  const total = document.createElement("P");
+  total.innerHTML = `<span>Precio total: </span>$${precioTotal.toFixed(2)} `;
+
   // BOTON PARA ENVIAR LOS DATOS AL BACKEND
   const botonReservar = document.createElement("BUTTON");
+  botonReservar.classList.add("botonReserva");
   botonReservar.classList.add("boton");
   botonReservar.textContent = "Reservar";
   botonReservar.onclick = reservarReservacion;
@@ -298,17 +306,17 @@ function mostrarCuentaFinal() {
   cuenta.appendChild(nombreCliente);
   cuenta.appendChild(fechaCliente);
   cuenta.appendChild(horaCliente);
-
+  cuenta.appendChild(total);
   cuenta.appendChild(botonReservar);
 }
 
 async function reservarReservacion() {
-  const { nombre, fecha, hora, servicios } = reservacion;
+  const { id, fecha, hora, servicios } = reservacion;
 
   const idServicios = servicios.map((servicio) => servicio.id);
 
   const datos = new FormData();
-  datos.append("nombre", nombre);
+  datos.append("usuarioId", id);
   datos.append("fecha", fecha);
   datos.append("hora", hora);
   datos.append("servicios", idServicios);
@@ -323,8 +331,17 @@ async function reservarReservacion() {
 
   const resultado = await respuesta.json();
 
-  console.log(resultado);
+  if (resultado.resultado) {
+    Swal.fire({
+      icon: "success",
+      title: "Reservacion creada!!",
+      text: "Tu reservacion fue creada correctamente...",
+    });
+  }
+  const botonReservar = document.querySelector(".botonReserva");
+  botonReservar.parentNode.removeChild(botonReservar);
 }
+
 function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
   // ya no se genera alerta
   const alertaPrevia = document.querySelector(".alerta");

@@ -26,7 +26,7 @@
 
         <li>
         <i class="fi fi-rr-exit"></i>
-        <button class="boton" >Cerrar Sesion</button>
+        <a  class="boton" href="/exit">Cerrar Sesion</a>
         </li>
     </ul>
 </nav>
@@ -75,6 +75,8 @@
 
 <?php 
     $script = "
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+
     <script src='build/js/app.js'></script>
     ";
 ?>

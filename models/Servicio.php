@@ -11,6 +11,7 @@ namespace Model;
          public $id;
          public $nombre;
          public $precio;
+         public $img;
 
         //  creamos construsctor
         public function __construct($args = []) {

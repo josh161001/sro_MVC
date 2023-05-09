@@ -14,16 +14,7 @@
         <button class="boton actual"  data-paso="1">Reservaciones</button>
         </li>
 
-        <li>
-        <i class="fi fi-rs-user-time"></i>
-        <button class="boton"  data-paso="2">Servicios</button>
-        </li>
-
-        <li>
-        <i class="fi fi-rr-file-invoice-dollar"></i>
-        <button class="boton"  data-paso="3">Nuevo servicio</button>
-        </li>
-
+       
         <li>
         <i class="fi fi-rr-exit"></i>
         <a  class="boton" href="/exit">Cerrar Sesion</a>
@@ -33,43 +24,50 @@
 </div>
     <div class="colmn2">
     <h1 >Panel de Administracion</h1>
-    <p>Coloca tus datos y detalles de tu reservacion</p>
+    <p>Consulta a tus clientes en este Panel</p>
+    <h2>Buscar Reservacion</h2>
    
-    <div id="app">
+    <div id="busqueda">
 
-    <div id="paso-1" class="seccion">
-    <h2>Datos y reservacion</h2>
-    <p>Coloca tus datos y fecha de tu  reservacion</p>
     <form class="formulario">
-    <div class="campo center">
-    <input  type="text" id ="nombre" placeholder ="Tu nombre" name="nombre"
-    value ="<?php echo $nombre; ?>" disabled>
-    </div>
-    <div id="paso-2" class="seccion">
-    <h2>servicios</h2>
-    <p>Eligue tus servicios</p>
-    <div id="servicios" class="listado-servicios"></div>
-    </div>
-    <div class="campo center">
-    <input  type="date" id="fecha"  min="<?php echo date('Y-m-d', strtotime('+1 day'));?>" >
-    </div>
-    <div class="campo center">
-    <input  type="time" id ="hora" >
-    </div>
-    <input type="hidden" value="<?php echo $id ?>" id="id">
-</form>
-</div>
-<div id="paso-3" class="seccion contenido-cuenta">
-<h2>Detalles de tu cuenta</h2>
-<p class="salto">Verifica que la informacion este correctamente</p>
-</div>
-<div class="paginacion">
-    <button class="boton" id="anterior">
-    &laquo;Anterior</button>
-    <button class="boton" id="siguiente">
-    Siguiente &raquo;</button>
 
-</div>
+    <div class="campo center">
+    <input  type="date" id="fecha" name="fecha">
+    </div>
+
+    </form>
+    </div>
+    <div class="reservacion-admin">
+        <ul class="reservacion">
+        <?php
+        $idReserva = 0;
+            foreach ($reservacion as $reserva) {
+                if ($idReserva !== $reserva->id) {
+         ?>
+         <li>
+            <p>Id: <span> <?php echo $reserva->id; ?></span></p>
+            <p>Hora: <span> <?php echo $reserva->hora; ?></span></p>
+            <p>Cliente: <span> <?php echo $reserva->cliente; ?></span></p>
+            <p>Email: <span> <?php echo $reserva->email; ?></span></p>
+            <p>Telefono: <span> <?php echo $reserva->telefono; ?></span></p>
+
+            <h3>Servicios</h3>
+       
+                <?php
+            $idReserva = $reserva->id;
+            }?>
+            <div class="servicios-li">
+            <p>Servicios: <span> <?php echo $reserva->servicio; ?></span></p>
+            <p>Precio: <span> <?php echo $reserva->precio; ?></span></p>
+            <img src="<?php echo $reserva->imagen; ?>" alt="servicio">
+            </div>
+          
+         </li>
+
+         <?php }?>
+        </ul>
+   
+    </div>
 </div>
 </div>
 </section>

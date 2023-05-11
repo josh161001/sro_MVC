@@ -39,4 +39,17 @@ class APIController {
       echo json_encode($respuesta);
     }
 
+    public static function eliminar() {
+      
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+          $id = $_POST['id'];
+
+          $reservacion = Reservacion::find($id);
+
+          $reservacion->eliminar();
+          header('Location:' . $_SERVER["HTTP_REFERER"]);
+        }
+  }
+
 }
+

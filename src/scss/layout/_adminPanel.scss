@@ -1,0 +1,53 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.servicios-li {
+  border-bottom: 1px solid v.$naranja;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  left: 0;
+  padding-bottom: 2rem;
+  padding-right: 5rem;
+  margin-right: 5rem;
+  padding-top: 3rem;
+  img {
+    width: 20%;
+  }
+
+  &:last-of-type {
+    margin-bottom: 2rem;
+  }
+}
+
+.reservacion-admin {
+  h3 {
+    padding-right: 5rem;
+    margin-right: 5rem;
+    padding-top: 3rem;
+    text-transform: uppercase;
+    background-color: rgba(v.$naranja, 0.3);
+    padding-bottom: 2.5rem;
+    margin-top: 2rem;
+  }
+
+  p {
+    text-align: left;
+    font-size: 2.4rem;
+  }
+  span {
+    font-weight: bold;
+  }
+}
+
+.campo {
+  input {
+    font-size: 2.5rem;
+  }
+}
+
+.total {
+  p {
+    font-size: 3.5rem;
+  }
+}

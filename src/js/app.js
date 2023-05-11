@@ -190,10 +190,10 @@ function seleccionarFecha() {
 
 function seleccionarHora() {
   const inputHora = document.querySelector("#hora");
+
   inputHora.addEventListener("input", function (e) {
     const horaReservacion = e.target.value;
     const hora = horaReservacion.split(":")[0];
-
     if (hora <= 8 || hora >= 23) {
       e.target.value = "";
       mostrarAlerta(

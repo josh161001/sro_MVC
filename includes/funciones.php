@@ -13,6 +13,13 @@ function s($html) : string {
     return $s;
 }
 
+function ultimo(string $actual, string $proximo) :bool{
+     if($actual !== $proximo) {
+        return true;
+     }
+     return false;
+}
+
 // funcion para saber si usuario esta autoenticado
 
 function autoenticado() : void {
@@ -23,3 +30,11 @@ function autoenticado() : void {
 
     }
 }
+
+function admin() : void {
+
+    if(!isset($_SESSION['admin'])){
+        header('Location: /');
+    }
+}
+

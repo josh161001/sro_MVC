@@ -40,5 +40,6 @@ $router->get('/admin', [AdminController::class, 'index']);
 //API  de reservacion
 $router-> get('/api/servicios', [APIController::class, 'index']);
 $router-> post('/api/reservaciones', [APIController::class, 'guardar']);
+$router->post('/api/eliminar', [APIController::class, 'eliminar']);
 // Comprueba y valida las rutas, asigna las funciones del Controlador
 $router->comprobarRutas();

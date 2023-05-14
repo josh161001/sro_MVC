@@ -8,8 +8,8 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel="stylesheet" href="build/css/app.css">
-    <link rel="stylesheet" href="build/css/app.css.map">
+    <link rel="stylesheet" href="/build/css/app.css">
+    <link rel="stylesheet" href="/build/css/app.css.map">
 </head>
 <body>
   

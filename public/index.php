@@ -6,6 +6,7 @@ use Controllers\LoginController;
 use Controllers\ReservaController;
 use Controllers\APIController;
 use Controllers\AdminController;
+use Controllers\ServicioController;
 
 use MVC\Router;
 
@@ -40,6 +41,16 @@ $router->get('/admin', [AdminController::class, 'index']);
 //API  de reservacion
 $router-> get('/api/servicios', [APIController::class, 'index']);
 $router-> post('/api/reservaciones', [APIController::class, 'guardar']);
-$router->post('/api/eliminar', [APIController::class, 'eliminar']);
+$router-> post('/api/eliminar', [APIController::class, 'eliminar']);
+
+// CRUD servicios
+$router->get('/servicios', [ServicioController::class, 'index']);
+$router->get('/servicios/crear', [ServicioController::class, 'crear']);
+$router->post('/servicios/crear', [ServicioController::class, 'crear']);
+$router->get('/servicios/actualizar', [ServicioController::class, 'actualizar']);
+$router->post('/servicios/actualizar', [ServicioController::class, 'actualizar']);
+$router->post('/servicios/eliminar', [ServicioController::class, 'eliminar']);
+
+
 // Comprueba y valida las rutas, asigna las funciones del Controlador
 $router->comprobarRutas();

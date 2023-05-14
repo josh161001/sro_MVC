@@ -8,3 +8,7 @@
   text-align: center;
   padding-right: 26rem;
 }
+
+.boton2 {
+  @include m.boton(orangered, white);
+}

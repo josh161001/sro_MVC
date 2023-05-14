@@ -18,16 +18,19 @@ class Email {
     public function enviarEmail(){
         // crear object email
         
+       
         $mail = new PHPMailer();
+     
         $mail->isSMTP();
-        $mail->Host = 'sandbox.smtp.mailtrap.io';
+        $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '3f762f8d6e1037';
-        $mail->Password = 'f58c6df05b8e8c';
+        $mail->Username = 'estrella161610@gmail.com';
+        $mail->Password = 'oigsbqynlbbirkgz    ';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
 
         $mail->setFrom('admin@sro.com',);
-        $mail->addAddress('admin@sro.com', 'Pantoja@sro.com');
+        $mail->addAddress($this->nombre, $this->email);
 
         $mail->Subject = 'Confirmar cuenta';
 
@@ -112,7 +115,7 @@ class Email {
           <div class='container'>
             <div class='bg-dark'>
               <div class='alert alert-primary'>Bienvenido:
-                <strong>  $this->email   </strong> 
+                <strong> $this->email    </strong> 
               </div>
         
               <div class='mensaje'>
@@ -145,15 +148,16 @@ class Email {
         }
         public function enviarCodigo() {
           $mail = new PHPMailer();
-          $mail->isSMTP();
-          $mail->Host = 'sandbox.smtp.mailtrap.io';
-          $mail->SMTPAuth = true;
-          $mail->Port = 2525;
-          $mail->Username = '3f762f8d6e1037';
-          $mail->Password = 'f58c6df05b8e8c';
-  
-          $mail->setFrom('admin@sro.com',);
-          $mail->addAddress('admin@sro.com', 'jorge@sro.com');
+     
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'estrella161610@gmail.com';
+        $mail->Password = 'oigsbqynlbbirkgz    ';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+        $mail->setFrom('admin@sro.com', 'Jorge');
+        $mail->addAddress($this->nombre, $this->email);
   
           $mail->Subject = 'Restablecer Password';
   

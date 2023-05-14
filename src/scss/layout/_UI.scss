@@ -48,6 +48,7 @@
   .formulario {
     label {
       color: black;
+      font-weight: bold;
     }
   }
 }
@@ -69,13 +70,13 @@
   border: none;
   border-bottom: solid 1px v.$gris;
   outline: none;
-  font-size: 1.8rem;
+  font-size: 2rem;
   text-align: left;
 }
 
 .campo {
-  padding-right: 8rem;
-  padding-left: 8rem;
+  padding-right: 4rem;
+  padding-left: 5rem;
   padding-bottom: 3rem;
   padding-top: 2rem;
 }

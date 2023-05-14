@@ -1,32 +1,45 @@
 @use "base/variables" as v;
 @use "base/mixins" as m;
 
-.listado-servicios{
-    padding-left: 2rem;
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(3, 30%);
-    transition-property: transform;
-    transition-duration: 300ms;
+.listado-servicios {
+  padding-left: 2rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, 30%);
+  transition-property: transform;
+  transition-duration: 300ms;
 
-    .servicio{
-        background-color: v.$naranja;
-        border-radius: 1rem;
-        margin: 1rem;
-        &:hover{
-            transform: scale(1.1);
-        }
-
-        &.seleccionado{
-            background-color: orangered;
-        }
+  .servicio {
+    background-color: v.$naranja;
+    border-radius: 1rem;
+    margin: 1rem;
+    &:hover {
+      transform: scale(1.1);
     }
 
+    &.seleccionado {
+      background-color: orangered;
+    }
+  }
 }
 
-.precio-servicio{
-    font-weight: bold;
+.precio-servicio {
+  font-weight: bold;
 }
-.salto{
-    padding-bottom: 2rem;
+.salto {
+  padding-bottom: 2rem;
+}
+
+.servicios {
+  @extend .listado-servicios;
+}
+
+.acciones {
+  .boton {
+    background-color: orangered;
+    color: black;
+  }
+}
+.hola {
+  font-weight: bold;
 }

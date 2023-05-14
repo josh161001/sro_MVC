@@ -20,7 +20,25 @@ namespace Model;
             $this->nombre = $args['nombre'] ?? '';
             $this->precio = $args['precio'] ?? '';
             $this->img = $args['img'] ?? '';
+        }
+
+        public function validar() {
+            if(!$this->nombre) {
+                self::$alertas['error'][] = 'El Nombre del Servicio es Obligatorio';
+            }
+            if(!$this->precio) {
+                self::$alertas['error'][] = 'El Precio del Servicio es Obligatorio';
+            }
+            if(!is_numeric($this->precio)) {
+                self::$alertas['error'][] = 'El precio no es válido';
+            }
+            if(!$this->img){
+                self::$alertas['error'][] = 'Imagen obligatorio';
+            }
+            return self::$alertas;
+        }
+           
 
 
         }
-    }
+    

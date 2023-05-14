@@ -7,8 +7,6 @@ use Model\AdminReservacion;
 
 class AdminController {
 
-
-
     public static function index (Router $router) {
 
         session_start();
